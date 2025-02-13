@@ -6,18 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-public class HorraireDtoSend {
-
-    private int idHorraire;
-    private LocalDate date;
-    private LocalTime heureArriver;
-    private LocalTime heureFin;
+public class EnfantDtoSend {
     private String idEnfant;
-    private String nomEnfant;
+
+    private String prenom;
+    private String nom;
+    private LocalDate dateNaissance;
+    private boolean isFille;
 }
