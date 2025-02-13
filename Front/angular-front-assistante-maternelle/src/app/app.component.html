@@ -1,0 +1,14 @@
+<h2>Liste des enfants</h2>
+
+<div *ngIf="enfants$ | async as enfants; else noChildren">
+  <ul>
+    <li *ngFor="let enfant of enfants">
+      {{ enfant.nom }} {{ enfant.prenom }} - Né(e) le : {{ enfant.dateNaissance }}
+    </li>
+  </ul>
+
+</div>
+
+<ng-template #noChildren>
+  <p>Aucun enfant trouvé.</p>
+</ng-template>
