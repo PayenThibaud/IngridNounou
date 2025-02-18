@@ -1,13 +1,12 @@
-<h2>Liste des enfants</h2>
+<div class="min-h-screen flex flex-col">
+  <!-- Navbar en haut -->
+  <app-navbar></app-navbar>
 
-<div *ngIf="enfants$ | async as enfants; else noChildren">
-  <ul>
-    <li *ngFor="let enfant of enfants">
-      {{ enfant.nom }} {{ enfant.prenom }} - Né(e) le : {{ enfant.dateNaissance }}
-    </li>
-  </ul>
+  <!-- Contenu principal (router-outlet) qui prend l'espace disponible -->
+  <div class="flex-grow">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer en bas -->
+  <app-footer></app-footer>
 </div>
-
-<ng-template #noChildren>
-  <p>Aucun enfant trouvé.</p>
-</ng-template>

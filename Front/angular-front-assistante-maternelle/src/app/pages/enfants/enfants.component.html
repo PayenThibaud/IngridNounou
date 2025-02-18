@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Gestion des Enfants</h2>
+
+  <!-- Formulaire d'ajout/modification -->
+  <form [formGroup]="enfantForm" (ngSubmit)="isEditMode ? updateEnfant() : addEnfant()">
+    <div>
+      <label>Prénom :</label>
+      <input type="text" formControlName="prenom" required>
+    </div>
+
+    <div>
+      <label>Nom :</label>
+      <input type="text" formControlName="nom" required>
+    </div>
+
+    <div>
+      <label>Date de naissance :</label>
+      <input type="date" formControlName="dateNaissance" required>
+    </div>
+
+    <div>
+      <label>Fille :</label>
+      <input type="checkbox" formControlName="fille">
+    </div>
+
+    <button type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+  </form>
+
+  <hr>
+
+  <!-- Liste des enfants -->
+  <h3>Liste des Enfants</h3>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Date de Naissance</th>
+      <th>Sexe</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let enfant of enfants">
+      <td>{{ enfant.idEnfant }}</td>
+      <td>{{ enfant.prenom }}</td>
+      <td>{{ enfant.nom }}</td>
+      <td>{{ enfant.dateNaissance }}</td>
+      <td>{{ enfant.fille ? 'Fille' : 'Garçon' }}</td>
+      <td>
+        <button (click)="editEnfant(enfant)">Modifier</button>
+        <button (click)="deleteEnfant(enfant.idEnfant)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
