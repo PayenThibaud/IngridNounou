@@ -7,7 +7,7 @@ import { Enfant } from '../types/enfant.type';
   providedIn: 'root'
 })
 export class EnfantService {
-  private api_url: string = "http://localhost:8082/enfant";
+  private api_url: string = "http://localhost:8079/enfant";
 
   constructor(private http: HttpClient) {}
 

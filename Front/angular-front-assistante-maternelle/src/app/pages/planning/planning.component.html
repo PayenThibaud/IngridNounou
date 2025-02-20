@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>Gestion des Plannings</h2>
+
+  <!-- Formulaire d'ajout/modification -->
+  <form [formGroup]="planningForm" (ngSubmit)="isEditMode ? updatePlanning() : addPlanning()">
+    <div>
+      <label>Date :</label>
+      <input type="date" formControlName="date" required>
+    </div>
+
+    <div>
+      <label>Heure d'arrivée :</label>
+      <input type="time" formControlName="heureArriver" required>
+    </div>
+
+    <div>
+      <label>Heure de fin :</label>
+      <input type="time" formControlName="heureFin" required>
+    </div>
+
+    <div>
+      <label>ID de l'Enfant :</label>
+      <input type="text" formControlName="idEnfant" required>
+    </div>
+
+    <div>
+      <label>Nom de l'Enfant :</label>
+      <input type="text" formControlName="nomEnfant" required>
+    </div>
+
+    <button type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+  </form>
+
+  <hr>
+
+  <!-- Liste des plannings -->
+  <h3>Liste des Plannings</h3>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Heure d'Arrivée</th>
+      <th>Heure de Fin</th>
+      <th>ID Enfant</th>
+      <th>Nom Enfant</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let planning of plannings">
+      <td>{{ planning.idHorraire }}</td>
+      <td>{{ planning.date }}</td>
+      <td>{{ planning.heureArriver }}</td>
+      <td>{{ planning.heureFin }}</td>
+      <td>{{ planning.idEnfant }}</td>
+      <td>{{ planning.nomEnfant }}</td>
+      <td>
+        <button (click)="editPlanning(planning)">Modifier</button>
+        <button (click)="deletePlanning(planning.idHorraire)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
