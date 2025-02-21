@@ -6,4 +6,5 @@ import {PlanningComponent} from './pages/planning/planning.component';
 export const routes: Routes = [
   {path: "", component: EnfantsComponent},
   {path: "planning", component: PlanningComponent}
+
 ];
