@@ -1,4 +1,4 @@
-package org.example.msgateway.Controller;
+package org.example.msgateway.Controller.loginController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

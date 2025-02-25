@@ -25,4 +25,11 @@ public class UserJwt {
     private String password;
     private String tel;
     private Role role;
+
+    public UserJwt(String pseudo, String email, String password, int role) {
+        this.pseudo = pseudo;
+        this.email = email;
+        this.password = password;
+        this.role = role == 0 ? Role.USER : Role.ADMIN;
+    }
 }
